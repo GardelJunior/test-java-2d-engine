@@ -45,7 +45,7 @@ public class LevelLoader {
 						
 						chunkW = Integer.parseInt(valores2[0]);
 						chunkH = Integer.parseInt(valores2[1]);
-						map = new Chunk[chunkH][chunkW];
+						map = new Chunk[yCells/chunkH][xCells/chunkW];
 						idMapping = new Tile[yCells][xCells];
 					}
 				} else {
@@ -75,6 +75,14 @@ public class LevelLoader {
 			for(int i = 0 ; i < vChunks ; i++) {
 				for(int j = 0 ; j < hChunks ; j++) {
 					map[i][j] = new Chunk(j * Tile.SIZE, i * Tile.SIZE,j * chunkW,i * chunkH,chunkW,chunkH,idMapping);
+				}
+			}
+			
+			for(int i = 0 ; i < map.length ; i++) {
+				for(int j = 0 ; j < map[i].length ; j++) {
+					if(map[i][j] == null) {
+						System.out.println("mapa nullo " + i + " " + j);
+					}
 				}
 			}
 			

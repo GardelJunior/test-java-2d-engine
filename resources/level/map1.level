@@ -6,7 +6,6 @@
 
 !A ideia desse mapa é que seja simples!
 
-! #level w,h chunkW,chunkH !
 #level 8,8 4,4
 0,2,0,0,0,0,0,2
 0,1,0,2,0,1,0,0

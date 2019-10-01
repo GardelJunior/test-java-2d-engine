@@ -11,10 +11,10 @@ public class Camera {
 	private float xOffset,yOffset;
 	private float smoothFactor;
 	
-	private float zoom = 2;
-	private float toZoom = 2;
-	private float zoomFactor = 0.3f;
-	private boolean isZooming = false;
+	private float zoom = 2f;
+	private float toZoom = 1;
+	private float zoomFactor = 0.04f;
+	private boolean isZooming = true;
 	
 	private float shake = 0;
 	
@@ -42,9 +42,14 @@ public class Camera {
 	}
 	
 	public void update() {
-		float sFactor = (isZooming)? 1 : smoothFactor;
-		x = Mathf.lerp(x, toX - xOffset/zoom, sFactor);
-		y = Mathf.lerp(y, toY - yOffset/zoom, sFactor);
+		
+		if(isZooming) {
+			x = toX - xOffset/zoom;
+			y = toY - yOffset/zoom;
+		}else {
+			x = Mathf.lerp(x, toX - xOffset/zoom, smoothFactor);
+			y = Mathf.lerp(y, toY - yOffset/zoom, smoothFactor);
+		}
 		
 		zoom = Mathf.lerp(zoom, toZoom, zoomFactor);
 		
@@ -55,7 +60,7 @@ public class Camera {
 			y += Mathf.lengthdir_y(shake, randomAngle);
 		}
 		
-		if(isZooming && zoom >= toZoom*0.999f) {
+		if(isZooming && toZoom-zoom <= 0.01f) {
 			isZooming = false;
 		}
 	}

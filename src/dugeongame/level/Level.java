@@ -9,7 +9,7 @@ public class Level {
 	
 	public void render() {
 		for(int i = 0 ; i < chunk.length ; i++) {
-			for(int j = 0 ; j < chunk[i].length ; i++) {
+			for(int j = 0 ; j < chunk[i].length ; j++) {
 				chunk[i][j].render();
 			}
 		}

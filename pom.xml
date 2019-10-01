@@ -19,7 +19,7 @@
   	<properties>
 		<lwjgl.version>3.2.2</lwjgl.version>
 		<joml.version>1.9.16</joml.version>
-		<lwjgl.natives>natives-windows</lwjgl.natives>
+		<lwjgl.natives>natives-linux</lwjgl.natives>
 	</properties>
 
 	<dependencies>

@@ -11,7 +11,7 @@ public class OPlayer extends GameObject {
 	
 	private TextureFrame shadow;
 	public float jumpH = 0;
-	public float hSPD = 10;
+	public float hSPD = 5;
 	public float yVel = 1;
 	public boolean jumping = false;
 	
@@ -46,7 +46,7 @@ public class OPlayer extends GameObject {
 		if(jumping) {
 			if(yVel > 0.1) {
 				jumpH += hSPD * yVel;
-				yVel *= 0.9;
+				yVel *= 0.89;
 				xScale = Mathf.sign(xScale) * 0.8f;
 				yScale = 1.2f;
 			}else if(yVel > 0){
